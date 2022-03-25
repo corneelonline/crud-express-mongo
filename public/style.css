@@ -1,0 +1,36 @@
+body {
+  background-color: #f4f6f6;
+  padding: 30px;
+}
+
+header {
+  background-color: #fff;
+  padding: 15px 30px;
+  border: 1px solid #bfbfbe;
+  margin-bottom: 15px;
+}
+
+.quotes-input {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.quotes-input > div {
+  width: calc(30% - 10px);
+  background-color: #fff;
+  padding: 15px 30px;
+  border: 1px solid #bfbfbe;
+}
+
+.quotes-output {
+  background-color: #fff;
+  padding: 15px 30px;
+  border: 1px solid #bfbfbe;
+  margin-bottom: 15px;
+}
+
+#message {
+  color: red;
+}

@@ -3,10 +3,6 @@ const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient
 const app = express();
 
-// Make sure you place body-parser before your CRUD handlers!
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(express.static('public'))
-app.use(bodyParser.json())
 
 app.set('view engine', 'ejs')
 
@@ -17,7 +13,10 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     console.log('Connected to Database')
     const db = client.db('star-wars-quotes')
     const quotesCollection = db.collection('quotes')
-    // app.use(/* ... */)
+    // Make sure you place body-parser before your CRUD handlers!
+    app.use(bodyParser.urlencoded({ extended: true }))
+    app.use(express.static('public'))
+    app.use(bodyParser.json())
     app.get('/', (req, res) => {
       db.collection('quotes').find().toArray()
         .then(results => {
